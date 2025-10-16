@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran magang - CampusIntern</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="form-body">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">CampusIntern</div>
+    <button id="darkModeToggle" class="dark-mode-toggle">Dark Mode</button>
+  </nav>
+
+  <h2 class="form-title">Pendaftaran Internship</h2>
+
+  <div class="form-wrapper">
+    <div class="form-container">
+      <form id="multiStepForm" novalidate>
+
+        <!-- STEP 1 -->
+        <div class="form-step active">
+          <div class="form-header">1. Data Diri</div>
+
+          <label>Nama Lengkap</label>
+          <input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
+
+          <label>Jenis Kelamin</label>
+          <select name="jenis_kelamin" required>
+            <option value ="" disabled selected hidden>Pilih</option>
+            <option value ="lakilaki">Laki-laki</option>
+            <option value ="perempuan">Perempuan</option>
+          </select>
+
+          <label>Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" required>
+
+          <label>Alamat Domisili</label>
+          <input type="text" name="alamat" placeholder="Alamat" required>
+
+          <label>Nomor HP / WhatsApp</label>
+          <input type="text" name="nomor" placeholder="08xxxxxxxxxx" required>
+
+          <label>Email Aktif</label>
+          <input type="email" name="email" placeholder="example@gmail.com" required>
+
+          <button type="button" class="btn-next">Selanjutnya</button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step">
+          <div class="form-header">2. Data Pendidikan</div>
+
+          <label>Pendidikan Terakhir</label>
+          <select name="pendidikan" required>
+            <option value ="" disabled selected hidden>Pilih</option>
+            <option value = "SD">SD</option>
+            <option value = "SMP">SMP</option>
+            <option value = "SMA / SMK / MA">SMA / SMK / MA</option>
+            <option value = "Diploma D4">Diploma D4 / D3</option>
+            <option value = "Sarjana S1">Sarjana S1</option>
+          </select>
+
+          <label>Asal sekolah / Universitas</label>
+          <input type="text" name="instansi" placeholder="Ex: Universitas Indonesia / SMAN 1 Surabaya" required>
+
+          <label>Program studi</label>
+          <input type="text" name="prodi" placeholder="Nama program studi" required>
+
+          <label>Jurusan</label>
+          <input type="text" name="jurusan" placeholder="Nama Jurusan" required>
+
+          <label>Semester</label>
+          <input type="text" name="semester" placeholder="Ex: 7, jika bukan mahasiswa isi -" required>
+
+          <label>IPK (opsional)</label>
+          <input type="text" name="ipk" placeholder="Ex: 3.75">
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev">Sebelumnya</button>
+            <button type="button" class="btn-next">Selanjutnya</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step">
+          <div class="form-header">3. Informasi Magang</div>
+
+          <label>Posisi / Jabatan yang dilamar</label>
+          <input type="text" name="jabatan" required>
+
+          <label>Alasan mengikuti magang</label>
+          <input type="text" name="alasan" required>
+
+          <label>Sumber info lowongan</label>
+          <select name="sumber" required>
+            <option>Pilih</option>
+            <option>Social media (Instagram, Facebook, X)</option>
+            <option>Media Partner</option>
+            <option>Website Internship</option>
+          </select>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev">Sebelumnya</button>
+            <button type="button" class="btn-next">Selanjutnya</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step">
+          <div class="form-header">4. Dokumen Lampiran</div>
+
+            <label>Upload CV (Format PDF)</label>
+            <input type="file" id="cvFile" name="cv" accept=".pdf" required>
+
+            <label>Portofolio (Opsional)</label>
+            <input type="file" id="portfolioFile" name="portofolio" accept=".pdf">
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev">Sebelumnya</button>
+            <button type="submit" class="btn-submit">Kirim</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
