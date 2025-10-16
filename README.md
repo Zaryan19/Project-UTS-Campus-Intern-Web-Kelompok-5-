@@ -58,6 +58,11 @@ Cara penggunaan:
 - mempunyai pertanyaan tentang website kami: bisa langsung ke bagian bawah dari halaman utama, terdapat fitur FAQ yg akan membantu kita dalam menjawab pertanyaan yg familiar/sering ditanyakan.
 3. setelah ke halaman informasi lowongan magang, bisa dilihat-lihat terlebih dahulu lowongan mana yg ingin ditelusuri. jika ingin melihat detail, tekan button "selengkapnya/icon segitiga dropdown".
 4. jika ingin melihat profile dari perusahaan, bisa menekan button website ataupun instagram yg akan mengarahkan sesuai tujuan.
+5. klik tombol daftar, untuk mengisi formulir pendaftaran pada suatu perusahaan
+6. mengisi semua data yg diperlukan untuk pendaftaran
+7. setelah selesai, pengumuman lowongannya akan disampaikan melalui email masing-masing pendaftar.
+
+
 
 
 
