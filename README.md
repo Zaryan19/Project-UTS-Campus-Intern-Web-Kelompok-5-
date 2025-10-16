@@ -63,6 +63,7 @@ Cara penggunaan:
 7. setelah selesai, pengumuman lowongannya akan disampaikan melalui email masing-masing pendaftar.
 
 
+
 Penjelasan Code Html, css, dan javascript pada tiap fitur:
 
 1. navigasi bar
@@ -123,6 +124,7 @@ gap: 20px; memberi jarak antar item menu agar tidak saling menempel, dan list-st
 #Mengatur gaya tampilan tautan dalam menu. Warna teks diatur menjadi putih agar sesuai dengan tema navbar, dan text-decoration: none; menghapus garis bawah pada link supaya tampil lebih bersih. Selain itu, font-weight: 500; memberi ketegasan pada teks agar terlihat profesional tapi tetap ringan.
 
 
+
 2. Dark mode dan Light mode
 **html:**
 
@@ -178,6 +180,7 @@ toggleBtn.addEventListener('click', () => {
 #e.	textContent tombol ikut diganti agar tulisan berubah sesuai mode (Dark Mode / Light Mode).
 
 
+
 3. Button "cari magang"
 **html:**
 <div class="search-box">
@@ -207,7 +210,138 @@ Bagian ini menampilkan tombol bertuliskan “Cari Magang” dengan ikon 🔍 (lu
 #Bagian utama pembungkus kotak pencarian. Menggunakan flexbox supaya isi (input, select, button) sejajar dan responsif. justify-content: center membuat semua elemen berada di tengah. Latar belakangnya putih transparan (rgba(255, 255, 255, 0.9)) agar terlihat lembut di atas background lain. Diberi padding dan border-radius supaya tampilannya tidak kaku (membulat di tepi). margin: 30px auto 0 membuatnya berada di tengah halaman dengan jarak ke atas. gap: 10px memberi jarak antar elemen di dalamnya.
 
 
-3. 
+
+4. FAQ (Frequently Asked Question)
+**hhtml:**
+<section class="faq">
+          <h2>Pertanyaan yang Paling Sering Ditanyakan</h2>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Apakah semua program magang di sini berbayar?</span>
+              <span class="toggle-btn">+</span>
+            </div>
+            <div class="faq-answer">
+              Seluruh program magang yang tersedia disini bersifat gratis.
+            </div>
+          </div>
+        </section>
+        
+#Elemen <div class="faq-item">
+Berfungsi sebagai wadah utama untuk satu unit FAQ (satu pertanyaan dan satu jawaban). class="faq-item" memungkinkan setiap item diatur tampilannya lewat CSS, misalnya memberi jarak antar pertanyaan.
+
+#Elemen <div class="faq-question">
+Menampung pertanyaan yang diajukan pengguna. Elemen <span> pertama berisi teks pertanyaan, sedangkan <span class="toggle-btn">+</span> menampilkan ikon “+” yang nantinya bisa digunakan untuk membuka atau menutup jawaban. class="toggle-btn" digunakan agar JavaScript dapat menambahkan fungsi klik pada ikon ini (misalnya untuk menampilkan jawaban secara dinamis).
+
+#Elemen <div class="faq-answer">
+Menyimpan jawaban dari pertanyaan di atas. Isi teksnya menjelaskan secara singkat apa itu Website CampusIntern. Elemen ini biasanya disembunyikan secara default (menggunakan CSS display: none;) dan baru ditampilkan ketika tombol “+” diklik.
+
+**css:**
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+}
+#Bagian ini sebagai container utama FAQ. Fungsinya mengatur ukuran kotak FAQ agar tidak terlalu lebar, posisi di tengah halaman, background putih, sudut membulat, ada bayangan biar terlihat rapi, dan diberi jarak dalam agar isi tidak menempel ke tepi.
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+#Mengatur tampilan judul FAQ. Teks dibuat rata tengah, diberi jarak bawah agar tidak menempel dengan konten berikutnya, dan warnanya dibuat abu gelap agar terlihat jelas.
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+#Dipakai untuk setiap item pertanyaan dan jawaban. Fungsinya memberi garis pemisah antar item FAQ dan memberi ruang atas–bawah supaya tiap item tidak saling berhimpitan.
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #222;
+}
+#Bagian ini adalah tampilan untuk pertanyaan FAQ. Isi pertanyaan disusun dalam satu baris, ikon diposisikan di kanan, dan teks di kiri. Elemen ini dibuat interaktif (klik) dengan kursor berubah saat diarahkan, dan teksnya ditebalkan untuk menonjolkan pertanyaan.
+
+**javascript:**
+// Ambil semua elemen pertanyaan FAQ
+  const faqQuestions = document.querySelectorAll(".faq-question");
+
+  // Tambahkan event klik ke setiap pertanyaan
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+      const parent = question.parentElement;
+      const toggleBtn = question.querySelector(".toggle-btn");
+
+      // Toggle class aktif
+      parent.classList.toggle("active");
+      
+      // Ubah tanda + jadi - dan sebaliknya
+      if (parent.classList.contains("active")) {
+        toggleBtn.textContent = "–";
+      } else {
+        toggleBtn.textContent = "+";
+      }
+    });
+  });
+#a.	faqQuestions mengambil semua elemen pertanyaan FAQ.
+#b.	forEach digunakan untuk memberi event klik ke setiap pertanyaan.
+#c.	Saat pertanyaan diklik, class active ditoggle pada parent-nya untuk menampilkan atau menyembunyikan jawaban.
+#d.	toggleBtn mengubah tanda “+” menjadi “–” ketika dibuka, dan kembali ke “+” saat ditutup.
+
+
+
+6. button dropdown informasi magang
+**html:**
+          <div class="card-header">
+            <div class="card-title">Selengkapnya</div>
+            <div class="toggle-icon">▼</div>
+          </div>
+          <div class="card-content">
+#class="card-header" digunakan untuk styling/mengelompokkan variable yg ingin ditutup
+#class card title digunakan untuk styling/mengelompokkan platform untuk deskripsi yg lebih rinci
+#class toggle icon digunakan untuk styling dan fungsi yg akan dipanggil di js dan cs. di html berfungsi sbgai button dropdown
+
+**css:**
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+#Bagian ini digunakan sebagai layout berbasis grid. Fungsinya untuk menyusun beberapa elemen (misalnya card) dalam bentuk kolom sejajar. Grid dibuat terdiri dari 3 kolom yang lebarnya sama, diberi jarak antar kolom, serta diberi margin agar tidak menempel pada tepi halaman.
+
+.card {
+  background: linear-gradient(135deg, #e4e7ff, #d7d7e9);
+  padding: 20px 25px;
+  border-radius: 16px;
+  margin: 15px 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+#Ini adalah styling untuk setiap kotak card di dalam grid. Card diberi background gradasi warna agar lebih menarik, memiliki padding supaya isi card tidak menempel ke tepi, sudutnya dibuat melengkung, serta diberi bayangan agar terlihat memiliki efek kedalaman. Selain itu, ada animasi halus (transition) saat card mengalami perubahan, dan overflow: hidden digunakan untuk mencegah isi keluar dari batas card.
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+#Bagian ini mengatur efek interaksi saat cursor diarahkan ke card. Card akan sedikit terangkat ke atas menggunakan transformasi, dan bayangannya dibuat lebih tegas untuk memberi efek seperti melayang sehingga terlihat interaktif dan modern.
+
+**javascript:**
+
+
+8. Button Website dan Instagram perusahaan
+9. button daftar
+10. input user
+11. button kembali
+
 
 
 
